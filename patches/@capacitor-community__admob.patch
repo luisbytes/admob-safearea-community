@@ -1,0 +1,50 @@
+diff --git a/android/src/main/java/com/getcapacitor/community/admob/banner/BannerExecutor.java b/android/src/main/java/com/getcapacitor/community/admob/banner/BannerExecutor.java
+index 36b773c3c3f8649f075f620efc7d6ba96a3b8fee..7eb63bf6cf218e5d650bfc27567ffc5713d0940d 100644
+--- a/android/src/main/java/com/getcapacitor/community/admob/banner/BannerExecutor.java
++++ b/android/src/main/java/com/getcapacitor/community/admob/banner/BannerExecutor.java
+@@ -2,7 +2,6 @@ package com.getcapacitor.community.admob.banner;
+ 
+ import android.app.Activity;
+ import android.content.Context;
+-import android.os.Build;
+ import android.util.DisplayMetrics;
+ import android.util.Log;
+ import android.view.Gravity;
+@@ -130,23 +129,21 @@ public class BannerExecutor extends Executor {
+                 mAdViewLayoutParams.setMargins(sideMargin, densityMargin, sideMargin, densityMargin);
+             }
+ 
+-            // set Safe Area only for Android 15+
+-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+-                View rootView = activitySupplier.get().getWindow().getDecorView();
+-                rootView.setOnApplyWindowInsetsListener((v, insets) -> {
+-                    int bottomInset = insets.getSystemWindowInsetBottom();
+-                    int topInset = insets.getSystemWindowInsetTop();
+-
+-                    if ("TOP_CENTER".equals(adOptions.position)) {
+-                        mAdViewLayoutParams.setMargins(margins[0], margins[1] + topInset, margins[2], margins[3]);
+-                    } else {
+-                        mAdViewLayoutParams.setMargins(margins[0], margins[1], margins[2], margins[3] + bottomInset);
+-                    }
++            mAdViewLayout.setOnApplyWindowInsetsListener((v, insets) -> {
++                int bottomInset = insets.getSystemWindowInsetBottom();
++                int topInset = insets.getSystemWindowInsetTop();
+ 
+-                    mAdViewLayout.setLayoutParams(mAdViewLayoutParams);
+-                    return insets;
+-                });
+-            }
++                if ("TOP_CENTER".equals(adOptions.position)) {
++                    mAdViewLayoutParams.setMargins(margins[0], margins[1] + topInset, margins[2], margins[3]);
++                } else {
++                    mAdViewLayoutParams.setMargins(margins[0], margins[1], margins[2], margins[3] + bottomInset);
++                }
++
++                mAdViewLayout.setLayoutParams(mAdViewLayoutParams);
++                return insets;
++            });
++            
++            mAdViewLayout.requestApplyInsets();
+ 
+             createNewAdView(adOptions);
+ 

@@ -1,2 +1,4 @@
 allowBuilds:
   esbuild: true
+patchedDependencies:
+  '@capacitor-community/admob': patches/@capacitor-community__admob.patch
