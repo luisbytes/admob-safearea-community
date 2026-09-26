@@ -6,5 +6,5 @@ PACKAGE="com.google.android.webview"
 while IFS= read -r device; do
   [[ -z "$device" ]] && continue
   echo "=== $device: uninstalling update for $PACKAGE ==="
-  adb -s "$device" shell pm uninstall "$PACKAGE"
+  adb -s "$device" shell pm uninstall "$PACKAGE" </dev/null
 done < <(adb devices | awk 'NR > 1 && $2 == "device" {print $1}')
