@@ -1,6 +1,6 @@
 {
-  "appId": "luisbytes.admob",
-  "appName": "Admob-Safearea",
+  "appId": "com.luisbytes.admob",
+  "appName": "Community-Admob-SafeArea",
   "webDir": "dist",
   "plugins": {
     "SplashScreen": {
