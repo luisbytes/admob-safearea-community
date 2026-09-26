@@ -9,7 +9,9 @@
   ],
   "scripts": {
     "start": "vite build && cap run android",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "adb:install": "./scripts/install_webview.sh",
+    "adb:uninstall": "./scripts/uninstall_webview.sh"
   },
   "dependencies": {
     "@capacitor-community/admob": "^8.1.0",
