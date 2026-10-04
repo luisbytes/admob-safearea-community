@@ -1,6 +1,6 @@
 # AdMob Safe Area Playground
 
-
+Playground to test AdMob banners and safe area insets on iOS and Android.
 
 ## How to run
 
@@ -13,7 +13,8 @@ pnpm install
 Then run the project:
 
 ```bash
-pnpm start
+pnpm start:android
+pnpm start:ios
 ```
 
 Then test using different Android System WebView versions.

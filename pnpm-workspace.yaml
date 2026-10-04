@@ -2,3 +2,5 @@ allowBuilds:
   esbuild: true
 minimumReleaseAgeExclude:
   - '@capacitor-community/admob@8.1.0-beta.pr469.sha608213b7c5d1'
+patchedDependencies:
+  "native-run@2.0.3": patches/native-run.patch
