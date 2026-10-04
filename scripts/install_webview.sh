@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -u
 
-APK="${1:-$HOME/Downloads/153.apk}"
+APK="${1:-$HOME/Downloads/webview/153.apk}"
 
 if [[ ! -f "$APK" ]]; then
   echo "APK not found: $APK" >&2
