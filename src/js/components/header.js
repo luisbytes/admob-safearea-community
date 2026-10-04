@@ -29,29 +29,38 @@ window.customElements.define(
         font-size: 0.9em;
       }
     </style>
-    <h1 id="android-info">Loading Android info...</h1>
+    <h1 id="platform-info">Loading platform info...</h1>
     <p id="webview-info">Loading device information...</p>
     `;
     }
 
     async connectedCallback() {
-      const androidInfoElement = this.shadowRoot.querySelector('#android-info');
+      const platformInfoElement = this.shadowRoot.querySelector('#platform-info');
       const webviewInfoElement = this.shadowRoot.querySelector('#webview-info');
 
       try {
         const deviceInfo = await Device.getInfo();
 
-        const androidInfo =`Android ${deviceInfo.osVersion}`;
+        const platformInfo = `${this.getPlatformName(deviceInfo.platform)} ${deviceInfo.osVersion}`;
         const webviewInfo = `WebView ${deviceInfo.webViewVersion} · Capacitor ${capacitorPackage.version}`;
 
-        androidInfoElement.textContent = androidInfo;
+        platformInfoElement.textContent = platformInfo;
         webviewInfoElement.textContent = webviewInfo;
       } catch (error) {
-        androidInfoElement.textContent = 'Android information unavailable';
+        platformInfoElement.textContent = 'Platform information unavailable';
         webviewInfoElement.textContent = 'Device information unavailable';
-        
+
         console.error('Could not read device information', error);
       }
+    }
+
+    getPlatformName(platform) {
+      const names = {
+        ios: 'iOS',
+        android: 'Android'
+      };
+
+      return names[platform] || platform;
     }
   },
 );
