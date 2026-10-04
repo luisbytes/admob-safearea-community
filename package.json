@@ -14,7 +14,7 @@
     "adb:uninstall": "./scripts/uninstall_webview.sh"
   },
   "dependencies": {
-    "@capacitor-community/admob": "^8.1.0",
+    "@capacitor-community/admob": "^8.1.0-beta.pr469.sha608213b7c5d1",
     "@capacitor/android": "^8.5.2",
     "@capacitor/core": "^8.5.2",
     "@capacitor/device": "^8.0.3",

@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@capacitor-community/admob':
-        specifier: ^8.1.0
-        version: 8.1.0
+        specifier: ^8.1.0-beta.pr469.sha608213b7c5d1
+        version: 8.1.0-beta.pr469.sha608213b7c5d1
       '@capacitor/android':
         specifier: ^8.5.2
         version: 8.5.2(@capacitor/core@8.5.2)
@@ -33,8 +33,8 @@ importers:
 
 packages:
 
-  '@capacitor-community/admob@8.1.0':
-    resolution: {integrity: sha512-DMIxg80CwQsJd0EcvsCNtpWizFcesZUFCFNVxRctv4HLSH8RPGfaS3pxRuq+tXw6jy0za5o3g5l/+z201nHNsw==}
+  '@capacitor-community/admob@8.1.0-beta.pr469.sha608213b7c5d1':
+    resolution: {integrity: sha512-GrcKqLWytMM+ZwgSXh0mE54Cov4WSHFVOxBCwVEgyATKn2vU2bpUAV9E8fUtFHcfRS9GZfCz1QhvMYl3QN+Naw==}
     engines: {node: '>=22.0.0'}
 
   '@capacitor/android@8.5.2':
@@ -841,7 +841,7 @@ packages:
 
 snapshots:
 
-  '@capacitor-community/admob@8.1.0':
+  '@capacitor-community/admob@8.1.0-beta.pr469.sha608213b7c5d1':
     dependencies:
       '@capacitor/core': 8.5.2
       '@rdlabo/capacitor-docgen': 0.4.1
